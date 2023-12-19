@@ -1,4 +1,5 @@
 import { Post } from "../models/post";
+import { fetchPost } from "../services/posts/fetch-post";
 import { randomDateBasedOnNumber } from "../utils/date";
 
 interface PostProps {
@@ -7,18 +8,8 @@ interface PostProps {
   };
 }
 
-// services
-const getData = async (id: number) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return await res.json();
-};
 const PostPage = async ({ params: { id } }: PostProps) => {
-  const post: Post = await getData(id);
+  const post: Post = await fetchPost(id);
   // extract this logic
   const date: string = randomDateBasedOnNumber(id);
 
