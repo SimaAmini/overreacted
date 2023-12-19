@@ -1,3 +1,5 @@
+import { ToggleTheme } from "./toggle-theme";
+
 const Header = () => {
   return (
     <div className="flex flex-grow justify-between flex-nowrap align-middle">
@@ -5,7 +7,7 @@ const Header = () => {
         <h1 className="text-4xl font-black">Overreacted</h1>
       </div>
       <div>
-        <p className="text-lg ">by Sima Amini</p>
+        <ToggleTheme />
       </div>
     </div>
   );

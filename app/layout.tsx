@@ -31,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html
+      lang="en"
+      className={`${sans.variable} ${serif.variable}`}
+      data-theme="dark"
+    >
       <body className="mx-auto max-w-2xl  px-5 py-12">
         <Header />
         <main className="flex min-h-screen flex-col  justify-between py-24">
