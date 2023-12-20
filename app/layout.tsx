@@ -4,7 +4,7 @@ import Header from "./components/header";
 
 import { Montserrat, Merriweather } from "next/font/google";
 
-export const sans = Montserrat({
+const sans = Montserrat({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700", "900"],
@@ -12,7 +12,7 @@ export const sans = Montserrat({
   variable: "--font-sans",
 });
 
-export const serif = Merriweather({
+const serif = Merriweather({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"],
@@ -34,7 +34,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${sans.variable} ${serif.variable}`}
-      data-theme="dark"
+      data-theme="light"
     >
       <body className="mx-auto max-w-2xl  px-5 py-12">
         <Header />

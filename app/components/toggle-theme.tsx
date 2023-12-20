@@ -1,10 +1,27 @@
 "use client";
 
+import { useEffect } from "react";
+import { useTheme } from "../store/theme-store";
+
 export const ToggleTheme = () => {
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    useTheme.persist.rehydrate();
+  }, []);
+
+  useEffect(() => {
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
-      <input type="checkbox" onChange={(e) => console.log(e.target.checked)} />
+      <input
+        type="checkbox"
+        onChange={(e) => setTheme(e.target.checked ? "light" : "dark")}
+        checked={theme === "light"}
+      />
 
       {/* sun icon */}
       <svg
