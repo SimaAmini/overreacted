@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/header";
 
 import { Montserrat, Merriweather } from "next/font/google";
+import { LIGHT_THEME } from "./constant";
 
 const sans = Montserrat({
   subsets: ["latin"],
@@ -34,7 +35,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${sans.variable} ${serif.variable}`}
-      data-theme="light"
+      data-theme={LIGHT_THEME}
     >
       <body className="mx-auto max-w-2xl  px-5 py-12">
         <Header />

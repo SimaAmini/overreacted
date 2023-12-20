@@ -1,26 +1,42 @@
 "use client";
 
-import { useEffect } from "react";
-import { useTheme } from "../store/theme-store";
+import { useEffect, useState } from "react";
+// import { useTheme } from "../store/theme-store";
+import ReduxProvider from "../redux-store/redux-provider";
+import { useAppDispatch, useAppSelector } from "../redux-store/store";
+import { setTheme } from "../redux-store/theme-slice";
 
-export const ToggleTheme = () => {
-  const { theme, setTheme } = useTheme();
+import { DARK_THEME, LIGHT_THEME } from "../constant";
+
+const Toggle = () => {
+  const [isLight, setIsLight] = useState<boolean>();
+
+  const dispatch = useAppDispatch();
+
+  const theme = useAppSelector((state) => state.theme.theme);
 
   useEffect(() => {
-    useTheme.persist.rehydrate();
-  }, []);
-
-  useEffect(() => {
+    setIsLight(theme === LIGHT_THEME);
     document.querySelector("html")?.setAttribute("data-theme", theme);
   }, [theme]);
 
+  // zustand implementation
+  // const { theme, setTheme } = useTheme();
+
+  // useEffect(() => {
+  //   useTheme.persist.rehydrate();
+  // }, []);
+
+  // const theme = store.getState().theme.theme;
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
       <input
         type="checkbox"
-        onChange={(e) => setTheme(e.target.checked ? "light" : "dark")}
-        checked={theme === "light"}
+        onChange={(e) =>
+          dispatch(setTheme(e.target.checked ? LIGHT_THEME : DARK_THEME))
+        }
+        checked={isLight}
       />
 
       {/* sun icon */}
@@ -41,5 +57,13 @@ export const ToggleTheme = () => {
         <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
       </svg>
     </label>
+  );
+};
+
+export const ToggleTheme = () => {
+  return (
+    <ReduxProvider>
+      <Toggle />
+    </ReduxProvider>
   );
 };
