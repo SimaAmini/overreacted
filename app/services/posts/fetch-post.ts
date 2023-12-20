@@ -1,5 +1,7 @@
+import { END_POINT } from "@/app/constant";
+
 export const fetchPost = async (id: number) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  const res = await fetch(`${END_POINT}/${id}`, {
     next: { revalidate: 3600 },
   });
 
