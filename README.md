@@ -17,6 +17,7 @@ You can access the live demo of this project [here](https://overreacted.netlify.
 - Redux
 - Tailwind CSS
 - Daisyui
+- Cypress
 
 ## Getting Started
 
@@ -61,9 +62,21 @@ To run this project locally, follow these steps:
     │   │   └── posts
     │   │       ├── fetch-post.ts
     │   │       └── fetch-posts.ts
+    │   │
     │   ├── utils
     │   │   ├── date.ts
     │   │   ├── fonts.ts
     │   │   └── sort-by-date
+    │   │
+    │   ├── cypress
+    │   │
     │   └── ...
     └── ...
+
+## E2E tests
+
+To run the e2e tests run this command:
+
+```bash
+  npm run cy:run
+```

@@ -16,13 +16,13 @@ const HomePage = async () => {
   );
 
   return (
-    <>
+    <div data-testid="post-list">
       {posts.map((post) => (
-        <Link key={post.id} href={`/${post.id}`}>
+        <Link key={post.id} href={`/${post.id}`} data-testid="post-item">
           <PostCard {...post} />
         </Link>
       ))}
-    </>
+    </div>
   );
 };
 export default HomePage;
