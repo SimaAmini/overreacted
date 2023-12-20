@@ -8,6 +8,11 @@ import { sans, serif } from "./utils/fonts";
 export const metadata: Metadata = {
   title: "overreacted",
   description: "a new implementation of overreacted",
+  metadataBase: new URL("https://overreacted.netlify.com"),
+  keywords: ["Next.js", "React", "JavaScript"],
+  creator: "Sima Amini",
+  generator: "Next.js",
+  applicationName: "Overreacted",
 };
 
 export default function RootLayout({

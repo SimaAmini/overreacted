@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Post } from "../models/post";
 import { fetchPost } from "../services/posts/fetch-post";
 import { formatDate, randomDateBasedOnNumber } from "../utils/date";
@@ -5,6 +7,18 @@ import { formatDate, randomDateBasedOnNumber } from "../utils/date";
 interface PostProps {
   params: {
     id: number;
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: PostProps): Promise<Metadata> {
+  const id = params.id;
+  const post = await fetchPost(id);
+
+  return {
+    title: post.title,
+    description: "overreacted post",
   };
 }
 
