@@ -1,12 +1,11 @@
 export function randomDateBasedOnNumber(id: number) {
-  const start = new Date(2023, 0, 1);
-  const end = new Date();
+  return new Date(2023, 0, id);
+}
 
-  const randomDate = start.getTime() + id * (end.getTime() - start.getTime());
-
+export function formatDate(date: Date): string {
   return new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  }).format(randomDate);
+  }).format(date);
 }

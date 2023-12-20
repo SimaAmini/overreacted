@@ -1,6 +1,6 @@
 import { Post } from "../models/post";
 import { fetchPost } from "../services/posts/fetch-post";
-import { randomDateBasedOnNumber } from "../utils/date";
+import { formatDate, randomDateBasedOnNumber } from "../utils/date";
 
 interface PostProps {
   params: {
@@ -9,9 +9,12 @@ interface PostProps {
 }
 
 const PostPage = async ({ params: { id } }: PostProps) => {
-  const post: Post = await fetchPost(id);
+  const singlePost: Post = await fetchPost(id);
 
-  const date: string = randomDateBasedOnNumber(id);
+  const post: Post = {
+    ...singlePost,
+    date: formatDate(randomDateBasedOnNumber(singlePost.id)),
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -19,7 +22,7 @@ const PostPage = async ({ params: { id } }: PostProps) => {
         <h2 className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
           {post.title}
         </h2>
-        <p className="text-sm my-2">{date}</p>
+        <p className="text-sm my-2">{post.date}</p>
       </div>
       <p>{post.body}</p>
     </div>
