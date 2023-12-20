@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Post } from "./models/post";
 import PostCard from "./components/post-card";
 import { fetchPosts } from "./services/posts/fetch-posts";

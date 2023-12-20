@@ -10,14 +10,16 @@ interface PostProps {
 
 const PostPage = async ({ params: { id } }: PostProps) => {
   const post: Post = await fetchPost(id);
-  // extract this logic
+
   const date: string = randomDateBasedOnNumber(id);
 
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h2>{post.title}</h2>
-        <p>{date}</p>
+        <h2 className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+          {post.title}
+        </h2>
+        <p className="text-sm my-2">{date}</p>
       </div>
       <p>{post.body}</p>
     </div>

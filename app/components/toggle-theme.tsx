@@ -9,7 +9,7 @@ import { setTheme } from "../redux-store/theme-slice";
 import { DARK_THEME, LIGHT_THEME } from "../constant";
 
 const Toggle = () => {
-  const [isLight, setIsLight] = useState<boolean>();
+  const [isLight, setIsLight] = useState<boolean>(true);
 
   const dispatch = useAppDispatch();
 
@@ -33,6 +33,7 @@ const Toggle = () => {
       {/* this hidden checkbox controls the state */}
       <input
         type="checkbox"
+        name="theme"
         onChange={(e) =>
           dispatch(setTheme(e.target.checked ? LIGHT_THEME : DARK_THEME))
         }
