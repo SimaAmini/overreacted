@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { useTheme } from "../store/theme-store";
 import ReduxProvider from "../redux-store/redux-provider";
 import { useAppDispatch, useAppSelector } from "../redux-store/store";
 import { setTheme } from "../redux-store/theme-slice";
@@ -20,14 +19,6 @@ const Toggle = () => {
     document.querySelector("html")?.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // zustand implementation
-  // const { theme, setTheme } = useTheme();
-
-  // useEffect(() => {
-  //   useTheme.persist.rehydrate();
-  // }, []);
-
-  // const theme = store.getState().theme.theme;
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
