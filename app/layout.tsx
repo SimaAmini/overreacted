@@ -8,7 +8,7 @@ import { sans, serif } from "./utils/fonts";
 export const metadata: Metadata = {
   title: "overreacted",
   description: "a new implementation of overreacted",
-  metadataBase: new URL("https://overreacted.netlify.com"),
+  metadataBase: new URL("https://overreacted.netlify.app"),
   keywords: ["Next.js", "React", "JavaScript"],
   creator: "Sima Amini",
   generator: "Next.js",

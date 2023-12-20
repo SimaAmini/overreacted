@@ -8,7 +8,7 @@ This repository contains my submission for the interview task assignment.
 
 ### Demo
 
-You can access the live demo of this project [here](link_to_demo).
+You can access the live demo of this project [here](https://overreacted.netlify.app).
 
 ## Technologies Used
 
