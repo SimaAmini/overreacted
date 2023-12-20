@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import Header from "./components/header";
-
-import { Montserrat, Merriweather } from "next/font/google";
 import { LIGHT_THEME } from "./constant";
-
-const sans = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "700", "900"],
-  style: ["normal"],
-  variable: "--font-sans",
-});
-
-const serif = Merriweather({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-});
+import { sans, serif } from "./utils/fonts";
 
 export const metadata: Metadata = {
   title: "overreacted",
